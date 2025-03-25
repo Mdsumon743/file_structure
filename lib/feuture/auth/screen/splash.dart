@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Splash extends StatelessWidget {
-  const Splash({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Container(
+        child: Text('this is sign in'),
+      ),
+    );
   }
 }
