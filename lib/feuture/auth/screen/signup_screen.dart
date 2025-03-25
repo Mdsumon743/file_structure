@@ -1,18 +1,23 @@
 import 'package:file_structure/feuture/auth/controller/login_controller.dart';
-import 'package:file_structure/feuture/auth/screen/signup_screen.dart';
+import 'package:file_structure/feuture/auth/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController = TextEditingController();
+    final TextEditingController userNameController = TextEditingController();
     final LoginController loginController = Get.put(LoginController());
+
+    
+    
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
@@ -22,7 +27,7 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: 10.w,),
             Container(
               width: 100.w,
-              height: 50.h,
+              height: 40.h,
               decoration: BoxDecoration(
                 image: DecorationImage(image: AssetImage(
                   'assets/images/logo_3.png'
@@ -30,19 +35,20 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 5.w,),
-            // Obx(() => _buildAnimatedTextField('Email', emailController, loginController.isEmailFocused, (focus) => loginController.isEmailFocused.value = focus ),)
+             _buildAnimatedTextField('User Name', userNameController, loginController.isUserNameFocused, (focus) => loginController.isUserNameFocused.value = focus ),
+            SizedBox(height: 3.w,),
             _buildAnimatedTextField('Email', emailController, loginController.isEmailFocused, (focus) => loginController.isEmailFocused.value = focus ),
             SizedBox(height: 3.w,),
+            
             _buildAnimatedTextField('password', passwordController, loginController.isPasswordFocused, (focus) => loginController.isPasswordFocused.value = focus ),
+            SizedBox(height: 3.w,),
+            _buildAnimatedTextField('Confirm password', confirmPasswordController, loginController.isConfirmPasswordFocused, (focus) => loginController.isConfirmPasswordFocused.value = focus ),
             SizedBox(height: 2.w,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  GestureDetector(onTap:  () {
-                    print('pressed');
-                    Get.to(() => SignupScreen());
-                  }, child: SizedBox(width: 40.w, child: _buildButton('Create Account'))),
+                  SizedBox(width: 40.w, child: _buildButton('Create Account')),
                    SizedBox(width: 3.w,),
                   SizedBox(width: 40.w, child: _buildButton('Sign in'))
                 ],
@@ -109,7 +115,9 @@ class LoginScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
       ),
       onPressed: () {
-        Get.to(() => SignupScreen());
+        Get.to(() => LoginScreen());
+        // Get.snackbar("Button Clicked", text,
+        //     snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.white);
       },
       child: Text(
         text,
