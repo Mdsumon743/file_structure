@@ -1,4 +1,4 @@
-import 'package:file_structure/feuture/auth/screen/splash.dart';
+import 'package:file_structure/feuture/auth/screen/login_screen.dart';
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class SplashController extends GetxController {
   void navigateToHomeScreen() {
     Future.delayed(
-      const Duration(milliseconds: 1500),
+      const Duration(milliseconds: 2000),
       () {
         Get.offAll(
           () => LoginScreen(),

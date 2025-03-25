@@ -55,6 +55,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     final controller=Get.put(SplashController());
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: AnimatedBuilder(
           animation: _controller,
